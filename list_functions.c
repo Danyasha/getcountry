@@ -78,26 +78,25 @@ t_user_id *make_user(unsigned int count, unsigned int user_id)
 	return new_id;
 }
 
-void	free_users(t_user_id *ids)
+void	free_users(t_user_id **ids)
 {
 	t_user_id *next;
-
-	while (ids)
+	t_user_id *temp = *ids;
+	while (temp)
 	{
-		next = ids->next;
-		free(ids);
-		ids = next;
+		next = temp->next;
+		free(temp);
+		temp = next;
 	}
-
 }
-void	free_countries(t_country *t)
+void	free_countries(t_country **country)
 {
 	t_country *next;
-
+	t_country *t = *country;
 	while (t)
 	{
 		next = t->next;
-		free_users(t->user_ids);
+		free_users(&(t->user_ids));
 		free(t->country_name);
 		free(t);
 		t = next;

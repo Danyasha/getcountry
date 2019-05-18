@@ -1,6 +1,6 @@
 NAME = get_stat
 FILES = get_stat.c list_functions.c get_next_line.c
-FLAGS = -Wall -Werror -Wextra
+FLAGS = -Wall -Werror -Wextra -g
 LIBA = -L libft/ -lft
 FILESO = ${SRC:.c=.o}
 all: $(NAME)

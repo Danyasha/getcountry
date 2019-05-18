@@ -1,6 +1,6 @@
 #include "get_stat.h"
 
-int countarr(char **ar)
+static int countarr(char **ar)
 {
     int i = 0;
     while (*ar)
@@ -11,7 +11,7 @@ int countarr(char **ar)
     return i;
 }
 
-void free_ar(char ***arr)
+static void free_ar(char ***arr)
 {
     int i;
     i = 0;
@@ -75,11 +75,13 @@ int main(int argn, char **argv)
 
     int count = 0;
     int sum;
+    country_temp = countries;
     while (countries)
     {
         sum = get_sum_and_count(countries->user_ids, &count);
         printf("%s: sum = %i count_uniq = %i\n", countries->country_name, sum, count);
         countries = countries->next;
     }
+    free_countries(&country_temp);
     return 0;
 }  

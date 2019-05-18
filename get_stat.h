@@ -25,4 +25,5 @@ t_user_id	*add_user(t_user_id *ids, t_user_id *new_id);
 t_user_id	*make_user(unsigned int count, unsigned int user_id);
 t_country	*find_country(t_country *countries, char *name);
 t_country	*new_country(char *name);
+void	free_countries(t_country **country);
 #endif
